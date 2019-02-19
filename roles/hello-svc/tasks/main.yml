@@ -1,0 +1,11 @@
+
+- import_role: 
+    name: svcinstall
+  vars:
+    svc_name: hello
+    svc_version: '1.0.1'
+    hello_svc_port: '8081'
+
+
+
+  
