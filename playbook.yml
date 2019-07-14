@@ -1,25 +1,23 @@
 ---
-- hosts: all
+- hosts: centos-1
   become: true
+  vars_files:
+    - "{{ protected_storage }}/vault.yml"
+  
   pre_tasks:
-    - name: Display all variables/facts known for a host
-      debug:
-        var: elasticsearch_master_ips
-      tags: debug_info
-    - name: get package facts
-      package_facts:
-        manager: "auto"
+  - name: get package facts
+    package_facts:
+      manager: "auto"
+  - name: Display all variables/facts known for a host
+    debug:
+      var: mysql_password
+      verbosity: 1
 
-
-- hosts: elasticsearch
+- hosts: centos-1
+  vars_files:
+    - "{{ protected_storage }}/vault.yml"
+  become: true
   roles:
-    - elasticsearch
+    - hello-service
 
-- hosts: kibana
-  roles:
-    - kibana
 
-- hosts: ous
-  roles:
-    - filebeat
-    - hello-svc
