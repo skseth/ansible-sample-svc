@@ -46,7 +46,7 @@ func main() {
 	}
 
 	if !c.NoFileLog {
-		ctx.Configure("hello.log", "/var/log/hello")
+		ctx.Configure("hello.log", "/var/log/hello-service")
 	}
 	defer ctx.Sync()
 
