@@ -1,0 +1,13 @@
+
+- import_role: 
+    name: rpminstall
+  vars:
+    package_name: nginx
+    package_version: nginx_version
+    package_rpmfile: "nginx-{{ nginx_version }}.el7.ngx.x86_64.rpm"
+    package_forceinstall: nginx_forceinstall
+
+- name: daemon reload nginx on installation
+  command: systemctl daemon-reload
+  become: true
+  notify: restart nginx
