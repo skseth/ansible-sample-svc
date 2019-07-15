@@ -13,6 +13,13 @@
       var: mysql_password
       verbosity: 1
 
+- hosts: lb
+  vars_files:
+    - "{{ protected_storage }}/vault.yml"
+  become: true
+  roles:
+    - nginx
+
 - hosts: centos-1
   vars_files:
     - "{{ protected_storage }}/vault.yml"
