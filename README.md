@@ -107,7 +107,6 @@ ansible-vault decrypt ~/.ansible_protected/vault.yml
 ## Running the playbook
 
 ```shell
-
 # to install
 ansible-playbook playbook.yml
 
